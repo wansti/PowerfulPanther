@@ -1,10 +1,12 @@
 {
   "FolderOrderSettings":[
-    {"name":"Rooms","order":4,"path":"folders/Rooms.yy",},
+    {"name":"Tilesets","order":5,"path":"folders/Tilesets.yy",},
     {"name":"Objects","order":2,"path":"folders/Objects.yy",},
+    {"name":"Rooms","order":4,"path":"folders/Rooms.yy",},
     {"name":"Sprites","order":3,"path":"folders/Sprites.yy",},
   ],
   "ResourceOrderSettings":[
-    {"name":"Mao","order":1,"path":"objects/Mao/Mao.yy",},
+    {"name":"Wall","order":1,"path":"objects/Wall/Wall.yy",},
+    {"name":"WallTilesetImage","order":6,"path":"sprites/WallTilesetImage/WallTilesetImage.yy",},
   ],
 }
