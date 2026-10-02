@@ -27,6 +27,7 @@
     {"id":{"name":"Mao","path":"objects/Mao/Mao.yy",},},
     {"id":{"name":"Wall","path":"objects/Wall/Wall.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"MaoSmall","path":"sprites/MaoSmall/MaoSmall.yy",},},
     {"id":{"name":"WallTilesetImage","path":"sprites/WallTilesetImage/WallTilesetImage.yy",},},
     {"id":{"name":"TileSet1","path":"tilesets/TileSet1/TileSet1.yy",},},
   ],
