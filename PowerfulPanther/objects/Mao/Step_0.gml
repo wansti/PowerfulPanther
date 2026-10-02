@@ -1,10 +1,9 @@
-// 1. GET PLAYER INPUT
-var _key_left  = keyboard_check(vk_left)  || keyboard_check(ord("A"));
-var _key_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
-var _key_jump  = keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord("W"));
+// 1. GET PLAYER INPUT (Updated)
+var _key_left      = keyboard_check(vk_left)  || keyboard_check(ord("A"));
+var _key_right     = keyboard_check(vk_right) || keyboard_check(ord("D"));
+var _key_jump      = keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord("W"));
 var _key_jump_held = keyboard_check(vk_space) || keyboard_check(ord("W"));
 
-// Calculate input direction (-1 for Left, 1 for Right, 0 for Idle)
 var _move = _key_right - _key_left;
 
 
@@ -30,35 +29,50 @@ else
 }
 
 
-// 3. VERTICAL VELOCITY FORMULA (vsp)
-// Check if touching the solid ground object (replace obj_solid with your ground wall)
+// 3. VERTICAL VELOCITY & COYOTE TIME FORMULA
 var _grounded = place_meeting(x, y + 1, tilemap);
 
-// Apply gravity if in the air
-if (!_grounded) 
+if (_grounded) 
 {
-    vsp += grav;
-    vsp = min(vsp, term_vel); // Clamp to terminal velocity
+    vsp = 0;
+    coyote_timer = coyote_time_max; // Reset the cushion frames while on solid ground
 } 
 else 
 {
-    vsp = 0; // Reset vertical velocity on the ground
+    coyote_timer--; // Count down when in the air
     
-    // Jump mechanics
+    // APEX GRAVITY SCALING
+    // If our vertical speed is close to 0 (the peak of the jump), dramatically reduce gravity
+    var _current_grav = grav;
+    if (abs(vsp) < apex_threshold) 
+    {
+        _current_grav = grav * apex_grav_mult;
+    }
+    
+    // Apply calculated gravity
+    vsp += _current_grav;
+    vsp = min(vsp, term_vel);
+}
+
+// JUMP MECHANICS (Using Coyote Time)
+// Instead of checking "_grounded", we check if our cushion timer is active
+if (coyote_timer > 0) 
+{
     if (_key_jump) 
     {
         vsp = jump_force; 
+        coyote_timer = 0; // Consume the coyote frame instantly so you can't double jump
     }
 }
 
-// VARIABLE JUMP HEIGHT (Removes floaty airtime if tapping the button)
+// VARIABLE JUMP HEIGHT (Dampen jump if button is released early)
 if (!_grounded && !_key_jump_held && vsp < 0) 
 {
-    vsp = max(vsp, jump_force * 0.35); // Instantly dampens upward velocity by 65%
+    vsp = max(vsp, jump_force * 0.35); 
 }
 
-// 4. OVERALL SPEED FORMULA (Magnitude)
-// This calculates total speed using the Pythagorean theorem formula: sqrt(hsp^2 + vsp^2)
+
+// 4. OVERALL SPEED FORMULA
 current_speed = point_distance(0, 0, hsp, vsp); 
 
 
