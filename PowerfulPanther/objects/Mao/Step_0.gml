@@ -170,31 +170,52 @@ if (place_meeting(x, y + vsp, tilemap))
 }
 y += vsp; // Update Y Position
 
-// Sprite selection
-// 1. CHOOSE THE RIGHT SPRITE BASED ON VELOCITY VECTORS
-if (_grounded)
+// 1. SMALL STATE (States 0 & 1)
+if (state == 0 || state == 1) 
 {
-    if (hsp != 0)
-    {
-        // Player is moving left or right on the ground
-        sprite_index = MaoRunning;  // Change to your running sprite asset name
-    }
-    else
-    {
-        // Player is standing completely still
-        sprite_index = MaoSmall; // Change to your idle sprite asset name
-    }
-}
-else
+    mask_index = SpriteMaskSmall; // Instantly shrink hitbox safely
+    
+    if (hsp != 0) sprite_index = MaoRunning; 
+    else          sprite_index = MaoSmall;
+} 
+// 2. BIG STATE (States 2 & 3)
+else if (state == 2 || state == 3) 
 {
-    // Player is in mid-air (jumping or falling)
-    if (vsp < 0)
+    // SAFETY RE-ROUTING FORMULA:
+    // If Mao is currently small but his state wants him to grow, check if there is a ceiling block above his head first.
+    if (mask_index == SpriteMaskSmall) 
     {
-        sprite_index = MaoRunning; // Rising up
+        // Calculate where the top boundary of Big Mao's head would land
+        var _big_height_difference = sprite_get_height(SpriteMaskBig) - sprite_get_height(SpriteMaskSmall);
+        var _ceiling_check = tilemap_get_at_pixel(tilemap, bbox_left, bbox_top - _big_height_difference) ||
+                             tilemap_get_at_pixel(tilemap, bbox_right, bbox_top - _big_height_difference);
+        
+        if (_ceiling_check) 
+        {
+            // FORCE MAO TO STAY SMALL AND REVERT STATE UNTIL HE LEAVES THE TIGHT SPACE
+            state = 1; 
+            mask_index = SpriteMaskSmall;
+            
+            if (hsp != 0) sprite_index = MaoRunning; 
+            else          sprite_index = MaoSmall;
+        } 
+        else 
+        {
+            // Safe to grow! No tile blocking his head
+            mask_index = SpriteMaskBig;
+        }
+    } 
+    else 
+    {
+        // Already big, maintain big hitbox safely
+        mask_index = SpriteMaskBig;
     }
-    else
+    
+    // Assign Big Art Assets if we successfully transitioned to the big mask
+    if (mask_index == SpriteMaskBig) 
     {
-        sprite_index = MaoRunning; // Falling down
+        if (hsp != 0) sprite_index = MaoBig; 
+        else          sprite_index = MaoBig;
     }
 }
 
