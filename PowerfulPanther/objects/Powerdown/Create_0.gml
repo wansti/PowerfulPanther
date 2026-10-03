@@ -9,3 +9,6 @@ vsp = 0;
 
 // --- State tracking ---
 has_hit_ground = false; // Tracks if it has landed yet
+
+// Custom angle variable that GameMaker's collision system ignores
+visual_angle = 0; 

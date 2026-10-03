@@ -1,0 +1,2 @@
+// Draw the sprite with our custom visual_angle, leaving the actual collision mask perfectly flat
+draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, visual_angle, image_blend, image_alpha);

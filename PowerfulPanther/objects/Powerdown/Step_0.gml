@@ -10,8 +10,8 @@ vsp = min(vsp, term_vel);
 // 3. GROUND DETECTION & RANDOM DIRECTION FORMULA
 // Check if a tile exists 1 pixel below the powerup
 var _bbox_side_y = (vsp >= 0) ? bbox_bottom : bbox_top;
-var _tile_below  = tilemap_get_at_pixel(_tilemap, bbox_left, bbox_bottom + 1) || 
-                   tilemap_get_at_pixel(_tilemap, bbox_right, bbox_bottom + 1);
+var _tile_below  = tilemap_get_at_pixel(_tilemap, bbox_left, bbox_bottom + 5) || 
+                   tilemap_get_at_pixel(_tilemap, bbox_right, bbox_bottom + 5);
 
 if (_tile_below) 
 {
@@ -63,3 +63,24 @@ if (place_meeting(x, y, Mao))
     // Destroy this instance so it can't be picked up again
     instance_destroy(); 
 }
+
+if (hsp != 0)
+{
+		// Spin the visual angle, completely safe from wall collisions
+		if (hsp < 0)
+		{
+			visual_angle += 3;
+		}
+		else if (hsp > 0)
+		{
+			visual_angle -= 3;
+		}
+
+		// Keep the value safely bounded between 0 and 360
+		if (visual_angle < 0) visual_angle += 360;
+}
+
+// Rotates the sprite clockwise by 2 degrees every frame
+//image_angle -= 2; 
+// Keep the angle bounded between 0 and 360 to prevent memory bloating over time
+//if (image_angle < 0) image_angle += 360;
