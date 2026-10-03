@@ -9,6 +9,8 @@ friction_val = 0.9;      // How fast you slow down
 grav         = 0.6;      // Gravity strength
 jump_force   = -13.5;     // Jump power
 term_vel     = 12;       // Terminal velocity
+// --- Wall Jump Tuning ---
+wall_jump_lock_timer = 0; // Countdown timer that freezes player inputs
 
 // --- Velocity Vectors ---
 hsp = 0;                 // Current horizontal velocity (vx)

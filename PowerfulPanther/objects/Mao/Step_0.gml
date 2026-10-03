@@ -1,3 +1,9 @@
+// Decrease the control lock timer
+if (wall_jump_lock_timer > 0) 
+{
+    wall_jump_lock_timer--;
+}
+
 // 1. CHOOSE YOUR DEVICE ID 
 // Slot 0 is usually the primary connected controller (Xbox, PlayStation, or Switch)
 var _slot = 0; 
@@ -32,6 +38,14 @@ var _final_right = _key_right || _pad_right || _stick_right;
 _key_jump      = _key_jump      || _pad_jump;
 _key_jump_held = _key_jump_held || _pad_jump_held;
 
+// OVERRIDE INPUTS IF CONTROL LOCKED
+// If the timer is ticking down, force horizontal inputs to be false (0)
+if (wall_jump_lock_timer > 0) 
+{
+    _final_left  = false;
+    _final_right = false;
+    // (If using analog stick, force _stick_left and _stick_right to false here too!)
+}
 
 // 6. CALCULATE FINAL MOVE DIRECTION
 // Use the combined variables. The rest of your movement math stays exactly the same!
@@ -88,6 +102,29 @@ else
     vsp = min(vsp, term_vel);
 }
 
+// --- WALL JUMP LOGIC (ONLY TRIGGERS IN STATE 3) ---
+// --- WALL JUMP LOGIC (ONLY TRIGGERS IN STATE 3) ---
+if (state == 3) 
+{    
+    var _wall_left  = tilemap_get_at_pixel(tilemap, bbox_left - 2, y) || 
+                      tilemap_get_at_pixel(tilemap, bbox_left - 2, bbox_bottom - 4);
+                      
+    var _wall_right = tilemap_get_at_pixel(tilemap, bbox_right + 2, y) || 
+                      tilemap_get_at_pixel(tilemap, bbox_right + 2, bbox_bottom - 4);
+    
+    if (!_grounded && (_wall_left || _wall_right) && _key_jump) 
+    {
+        var _push_direction = _wall_left ? 1 : -1;
+        
+        vsp = jump_force * 0.9;            
+        hsp = _push_direction * walk_speed * 1.5; // Kick away explosively
+        
+        // TRIGGER CONTROL LOCK
+        // Freezes the player's ability to steer backward for 12 frames
+        wall_jump_lock_timer = 20; 
+    }
+}
+
 // JUMP MECHANICS (Using Coyote Time)
 // Instead of checking "_grounded", we check if our cushion timer is active
 if (coyote_timer > 0) 
@@ -132,3 +169,40 @@ if (place_meeting(x, y + vsp, tilemap))
     vsp = 0; // Stop vertical velocity on collision
 }
 y += vsp; // Update Y Position
+
+// Sprite selection
+// 1. CHOOSE THE RIGHT SPRITE BASED ON VELOCITY VECTORS
+if (_grounded)
+{
+    if (hsp != 0)
+    {
+        // Player is moving left or right on the ground
+        sprite_index = MaoRunning;  // Change to your running sprite asset name
+    }
+    else
+    {
+        // Player is standing completely still
+        sprite_index = MaoSmall; // Change to your idle sprite asset name
+    }
+}
+else
+{
+    // Player is in mid-air (jumping or falling)
+    if (vsp < 0)
+    {
+        sprite_index = MaoRunning; // Rising up
+    }
+    else
+    {
+        sprite_index = MaoRunning; // Falling down
+    }
+}
+
+
+// 2. FLIP THE SPRITE HORIZONTALLY TO FACE MOVEMENT DIRECTION
+// Using image_xscale = 1 draws the sprite normally (facing right)
+// Using image_xscale = -1 mirrors the sprite (facing left)
+if (hsp != 0)
+{
+    image_xscale = sign(hsp); 
+}
