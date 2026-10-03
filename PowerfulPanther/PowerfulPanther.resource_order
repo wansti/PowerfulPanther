@@ -8,6 +8,7 @@
     {"name":"Pixel Starter Pack","order":1,"path":"folders/Tile Sets/Pixel Starter Pack.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"DeathBlock","order":5,"path":"objects/DeathBlock/DeathBlock.yy",},
     {"name":"Powerdown","order":2,"path":"objects/Powerdown/Powerdown.yy",},
     {"name":"PowerdownDispenser","order":3,"path":"objects/PowerdownDispenser/PowerdownDispenser.yy",},
     {"name":"UI","order":4,"path":"objects/UI/UI.yy",},

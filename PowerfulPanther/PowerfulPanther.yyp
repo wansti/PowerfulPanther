@@ -26,6 +26,7 @@
   },
   "name":"PowerfulPanther",
   "resources":[
+    {"id":{"name":"DeathBlock","path":"objects/DeathBlock/DeathBlock.yy",},},
     {"id":{"name":"Mao","path":"objects/Mao/Mao.yy",},},
     {"id":{"name":"Powerdown","path":"objects/Powerdown/Powerdown.yy",},},
     {"id":{"name":"PowerdownDispenser","path":"objects/PowerdownDispenser/PowerdownDispenser.yy",},},
