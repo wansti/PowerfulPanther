@@ -39,6 +39,9 @@
     "name":"MaoSmall",
     "path":"sprites/MaoSmall/MaoSmall.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"MaoSmall",
+    "path":"sprites/MaoSmall/MaoSmall.yy",
+  },
   "visible":true,
 }
