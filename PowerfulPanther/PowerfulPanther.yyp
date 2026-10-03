@@ -27,6 +27,7 @@
   "name":"PowerfulPanther",
   "resources":[
     {"id":{"name":"DeathBlock","path":"objects/DeathBlock/DeathBlock.yy",},},
+    {"id":{"name":"Exit","path":"objects/Exit/Exit.yy",},},
     {"id":{"name":"Mao","path":"objects/Mao/Mao.yy",},},
     {"id":{"name":"Powerdown","path":"objects/Powerdown/Powerdown.yy",},},
     {"id":{"name":"PowerdownDispenser","path":"objects/PowerdownDispenser/PowerdownDispenser.yy",},},
@@ -43,6 +44,7 @@
     {"id":{"name":"coin_gold_sp","path":"sprites/coin_gold_sp/coin_gold_sp.yy",},},
     {"id":{"name":"coin_silver_sp","path":"sprites/coin_silver_sp/coin_silver_sp.yy",},},
     {"id":{"name":"coinAnimated_sp","path":"sprites/coinAnimated_sp/coinAnimated_sp.yy",},},
+    {"id":{"name":"ExitSprite","path":"sprites/ExitSprite/ExitSprite.yy",},},
     {"id":{"name":"gem_sp","path":"sprites/gem_sp/gem_sp.yy",},},
     {"id":{"name":"grass_1_sp","path":"sprites/grass_1_sp/grass_1_sp.yy",},},
     {"id":{"name":"grass_2_sp","path":"sprites/grass_2_sp/grass_2_sp.yy",},},

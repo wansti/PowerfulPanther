@@ -9,6 +9,7 @@
   ],
   "ResourceOrderSettings":[
     {"name":"DeathBlock","order":5,"path":"objects/DeathBlock/DeathBlock.yy",},
+    {"name":"Exit","order":7,"path":"objects/Exit/Exit.yy",},
     {"name":"Powerdown","order":2,"path":"objects/Powerdown/Powerdown.yy",},
     {"name":"PowerdownDispenser","order":3,"path":"objects/PowerdownDispenser/PowerdownDispenser.yy",},
     {"name":"Rain","order":6,"path":"objects/Rain/Rain.yy",},
@@ -22,6 +23,7 @@
     {"name":"coin_gold_sp","order":7,"path":"sprites/coin_gold_sp/coin_gold_sp.yy",},
     {"name":"coin_silver_sp","order":8,"path":"sprites/coin_silver_sp/coin_silver_sp.yy",},
     {"name":"coinAnimated_sp","order":9,"path":"sprites/coinAnimated_sp/coinAnimated_sp.yy",},
+    {"name":"ExitSprite","order":7,"path":"sprites/ExitSprite/ExitSprite.yy",},
     {"name":"gem_sp","order":10,"path":"sprites/gem_sp/gem_sp.yy",},
     {"name":"grass_1_sp","order":11,"path":"sprites/grass_1_sp/grass_1_sp.yy",},
     {"name":"grass_2_sp","order":12,"path":"sprites/grass_2_sp/grass_2_sp.yy",},
