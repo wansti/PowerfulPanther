@@ -1,3 +1,7 @@
+// 0 = smallest
+// 3 = biggest
+state = 2
+
 tilemap = layer_tilemap_get_id("CollisionTiles");
 
 // --- Movement Constants ---

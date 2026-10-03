@@ -1,12 +1,15 @@
 {
   "FolderOrderSettings":[
-    {"name":"Tilesets","order":5,"path":"folders/Tilesets.yy",},
     {"name":"Objects","order":2,"path":"folders/Objects.yy",},
     {"name":"Rooms","order":4,"path":"folders/Rooms.yy",},
     {"name":"Sprites","order":3,"path":"folders/Sprites.yy",},
+    {"name":"Tilesets","order":5,"path":"folders/Tilesets.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"Powerdown","order":2,"path":"objects/Powerdown/Powerdown.yy",},
+    {"name":"PowerdownDispenser","order":3,"path":"objects/PowerdownDispenser/PowerdownDispenser.yy",},
     {"name":"Wall","order":1,"path":"objects/Wall/Wall.yy",},
     {"name":"WallTilesetImage","order":6,"path":"sprites/WallTilesetImage/WallTilesetImage.yy",},
+    {"name":"Yarn","order":1,"path":"sprites/Yarn/Yarn.yy",},
   ],
 }
