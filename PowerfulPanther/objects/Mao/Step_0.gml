@@ -214,7 +214,7 @@ else if (state == 2 || state == 3)
     // Assign Big Art Assets if we successfully transitioned to the big mask
     if (mask_index == SpriteMaskBig) 
     {
-        if (hsp != 0) sprite_index = MaoBig; 
+        if (hsp != 0) sprite_index = MaoBigRunning; 
         else          sprite_index = MaoBig;
     }
 }

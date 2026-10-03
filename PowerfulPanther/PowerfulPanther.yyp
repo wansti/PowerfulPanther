@@ -59,6 +59,7 @@
     {"id":{"name":"keyCard_b_sp","path":"sprites/keyCard_b_sp/keyCard_b_sp.yy",},},
     {"id":{"name":"largeRock_sp","path":"sprites/largeRock_sp/largeRock_sp.yy",},},
     {"id":{"name":"MaoBig","path":"sprites/MaoBig/MaoBig.yy",},},
+    {"id":{"name":"MaoBigRunning","path":"sprites/MaoBigRunning/MaoBigRunning.yy",},},
     {"id":{"name":"MaoRunning","path":"sprites/MaoRunning/MaoRunning.yy",},},
     {"id":{"name":"MaoSmall","path":"sprites/MaoSmall/MaoSmall.yy",},},
     {"id":{"name":"PixelTileSets_SideScroll_sp","path":"sprites/PixelTileSets_SideScroll_sp/PixelTileSets_SideScroll_sp.yy",},},

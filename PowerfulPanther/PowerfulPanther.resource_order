@@ -38,6 +38,7 @@
     {"name":"keyCard_b_sp","order":21,"path":"sprites/keyCard_b_sp/keyCard_b_sp.yy",},
     {"name":"largeRock_sp","order":22,"path":"sprites/largeRock_sp/largeRock_sp.yy",},
     {"name":"MaoBig","order":4,"path":"sprites/MaoBig/MaoBig.yy",},
+    {"name":"MaoBigRunning","order":8,"path":"sprites/MaoBigRunning/MaoBigRunning.yy",},
     {"name":"MaoRunning","order":3,"path":"sprites/MaoRunning/MaoRunning.yy",},
     {"name":"PixelTileSets_SideScroll_sp","order":23,"path":"sprites/PixelTileSets_SideScroll_sp/PixelTileSets_SideScroll_sp.yy",},
     {"name":"PixelTileSets_TopDown_sp","order":24,"path":"sprites/PixelTileSets_TopDown_sp/PixelTileSets_TopDown_sp.yy",},
