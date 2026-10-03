@@ -3,11 +3,11 @@
 state = 2
 
 // --- Movement Constants ---
-walk_speed   = 4;        // Maximum horizontal speed
+walk_speed   = 6;        // Maximum horizontal speed
 acceleration = 0.8;      // How fast you speed up
 friction_val = 0.9;      // How fast you slow down
 grav         = 0.6;      // Gravity strength
-jump_force   = -12.5;     // Jump power
+jump_force   = -13.5;     // Jump power
 term_vel     = 12;       // Terminal velocity
 
 // --- Velocity Vectors ---

@@ -1,10 +1,41 @@
-// 1. GET PLAYER INPUT (Updated)
+// 1. CHOOSE YOUR DEVICE ID 
+// Slot 0 is usually the primary connected controller (Xbox, PlayStation, or Switch)
+var _slot = 0; 
+
+// 2. CHECK KEYBOARD INPUTS (Existing)
 var _key_left      = keyboard_check(vk_left)  || keyboard_check(ord("A"));
 var _key_right     = keyboard_check(vk_right) || keyboard_check(ord("D"));
 var _key_jump      = keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord("W"));
 var _key_jump_held = keyboard_check(vk_space) || keyboard_check(ord("W"));
 
-var _move = _key_right - _key_left;
+// 3. CHECK GAMEPAD BUTTONS (D-Pad & Face Buttons)
+var _pad_left      = gamepad_button_check(_slot, gp_padl);
+var _pad_right     = gamepad_button_check(_slot, gp_padr);
+var _pad_jump      = gamepad_button_check_pressed(_slot, gp_face1); // 'A' on Xbox / 'Cross' on PS
+var _pad_jump_held = gamepad_button_check(_slot, gp_face1);
+
+// 4. CHECK GAMEPAD ANALOG STICK (Left Thumbstick Horizontal Axis)
+// Left stick axis returns a decimal value from -1.0 (all the way Left) to 1.0 (all the way Right)
+var _axis_h = gamepad_axis_value(_slot, gp_axislh);
+
+// Set a deadzone so a loose thumbstick doesn't make Mao slowly drift on his own
+var _deadzone = 0.25;
+var _stick_left  = (_axis_h < -_deadzone);
+var _stick_right = (_axis_h > _deadzone);
+
+
+// 5. COMBINE ALL INPUTS TOGETHER
+// If ANY of these methods are true, the action triggers
+var _final_left  = _key_left  || _pad_left  || _stick_left;
+var _final_right = _key_right || _pad_right || _stick_right;
+
+_key_jump      = _key_jump      || _pad_jump;
+_key_jump_held = _key_jump_held || _pad_jump_held;
+
+
+// 6. CALCULATE FINAL MOVE DIRECTION
+// Use the combined variables. The rest of your movement math stays exactly the same!
+var _move = _final_right - _final_left;
 
 var _layer_id = layer_get_id("CollisionTiles"); // Change to your Tile Layer name
 var tilemap  = layer_tilemap_get_id(_layer_id);
