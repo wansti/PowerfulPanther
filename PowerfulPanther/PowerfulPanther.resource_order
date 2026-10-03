@@ -8,6 +8,7 @@
   "ResourceOrderSettings":[
     {"name":"Powerdown","order":2,"path":"objects/Powerdown/Powerdown.yy",},
     {"name":"PowerdownDispenser","order":3,"path":"objects/PowerdownDispenser/PowerdownDispenser.yy",},
+    {"name":"UI","order":4,"path":"objects/UI/UI.yy",},
     {"name":"Wall","order":1,"path":"objects/Wall/Wall.yy",},
     {"name":"WallTilesetImage","order":6,"path":"sprites/WallTilesetImage/WallTilesetImage.yy",},
     {"name":"Yarn","order":1,"path":"sprites/Yarn/Yarn.yy",},

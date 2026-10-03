@@ -1,6 +1,6 @@
 // --- Physics Constants ---
-grav       = 0.4;       // Heavy enough to fall smoothly
-walk_speed = 1.5;       // Speed it wanders left/right
+grav       = 0.5;       // Heavy enough to fall smoothly
+walk_speed = 2.5;       // Speed it wanders left/right
 term_vel   = 8;         // Maximum falling speed
 
 // --- Velocity Vectors ---
