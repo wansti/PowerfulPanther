@@ -6,6 +6,9 @@ var _key_jump_held = keyboard_check(vk_space) || keyboard_check(ord("W"));
 
 var _move = _key_right - _key_left;
 
+var _layer_id = layer_get_id("CollisionTiles"); // Change to your Tile Layer name
+var tilemap  = layer_tilemap_get_id(_layer_id);
+
 
 // 2. HORIZONTAL VELOCITY FORMULA (hsp)
 if (_move != 0) 
