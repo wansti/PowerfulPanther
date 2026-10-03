@@ -32,7 +32,6 @@
     {"id":{"name":"PowerdownDispenser","path":"objects/PowerdownDispenser/PowerdownDispenser.yy",},},
     {"id":{"name":"Rain","path":"objects/Rain/Rain.yy",},},
     {"id":{"name":"UI","path":"objects/UI/UI.yy",},},
-    {"id":{"name":"Wall","path":"objects/Wall/Wall.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"background_sp","path":"sprites/background_sp/background_sp.yy",},},
     {"id":{"name":"bluePotion_sp","path":"sprites/bluePotion_sp/bluePotion_sp.yy",},},

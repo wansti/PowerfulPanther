@@ -13,7 +13,6 @@
     {"name":"PowerdownDispenser","order":3,"path":"objects/PowerdownDispenser/PowerdownDispenser.yy",},
     {"name":"Rain","order":6,"path":"objects/Rain/Rain.yy",},
     {"name":"UI","order":4,"path":"objects/UI/UI.yy",},
-    {"name":"Wall","order":1,"path":"objects/Wall/Wall.yy",},
     {"name":"bluePotion_sp","order":1,"path":"sprites/bluePotion_sp/bluePotion_sp.yy",},
     {"name":"bush_sp","order":2,"path":"sprites/bush_sp/bush_sp.yy",},
     {"name":"bushFrame1_sp","order":3,"path":"sprites/bushFrame1_sp/bushFrame1_sp.yy",},
