@@ -30,6 +30,7 @@
     {"id":{"name":"Mao","path":"objects/Mao/Mao.yy",},},
     {"id":{"name":"Powerdown","path":"objects/Powerdown/Powerdown.yy",},},
     {"id":{"name":"PowerdownDispenser","path":"objects/PowerdownDispenser/PowerdownDispenser.yy",},},
+    {"id":{"name":"Rain","path":"objects/Rain/Rain.yy",},},
     {"id":{"name":"UI","path":"objects/UI/UI.yy",},},
     {"id":{"name":"Wall","path":"objects/Wall/Wall.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},

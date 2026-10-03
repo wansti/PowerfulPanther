@@ -11,6 +11,7 @@
     {"name":"inst_6A0FE7AA","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_689DF08A","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_65468F35","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_6AC56E91","path":"rooms/Room1/Room1.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -22,6 +23,7 @@
         {"$GMRInstance":"v4","%Name":"inst_6A0FE7AA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6A0FE7AA","objectId":{"name":"PowerdownDispenser","path":"objects/PowerdownDispenser/PowerdownDispenser.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":2752.0,"y":0.0,},
         {"$GMRInstance":"v4","%Name":"inst_689DF08A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_689DF08A","objectId":{"name":"DeathBlock","path":"objects/DeathBlock/DeathBlock.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":-90.0,"scaleX":1.0,"scaleY":1.0,"x":2656.0,"y":128.0,},
         {"$GMRInstance":"v4","%Name":"inst_65468F35","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_65468F35","objectId":{"name":"DeathBlock","path":"objects/DeathBlock/DeathBlock.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":-90.0,"scaleX":1.0,"scaleY":1.0,"x":2656.0,"y":160.0,},
+        {"$GMRInstance":"v4","%Name":"inst_6AC56E91","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6AC56E91","objectId":{"name":"Rain","path":"objects/Rain/Rain.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":2688.0,"y":0.0,},
       ],"layers":[],"name":"Instances_1","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"CollisionTiles","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"CollisionTiles","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":12,"SerialiseWidth":64,"TileCompressedData":[
           1,9,-63,-2147483648,1,9,-63,-2147483648,1,9,-12,-2147483648,-4,3,-16,-2147483648,1,2,-4,3,3,4,-2147483648,
