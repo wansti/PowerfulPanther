@@ -2,6 +2,7 @@
 // 1. CALCULATE TIME FORMAT (MM:SS)
 var _minutes = floor(total_seconds / 60);
 var _seconds = floor(total_seconds mod 60);
+var _font_scale = 2;
 
 // Format numbers into strings with a leading zero if they are single digits
 var _str_mins = (_minutes < 10) ? "0" + string(_minutes) : string(_minutes);
@@ -22,11 +23,11 @@ var _gui_y = 20;
 
 // Drop shadow effect for readability against bright background tiles
 draw_set_color(c_black);
-draw_text(_gui_x + 2, _gui_y + 2, _time_string);
+draw_text_transformed(_gui_x + 2, _gui_y + 2, _time_string, _font_scale, _font_scale, 0);
 
 // Foreground main text
 draw_set_color(c_white);
-draw_text(_gui_x, _gui_y, _time_string);
+draw_text_transformed(_gui_x, _gui_y, _time_string, _font_scale, _font_scale, 0);
 
 
 // 4. RESET ALIGNMENT (Best practice so it doesn't break other UI elements)
@@ -45,7 +46,16 @@ if (instance_exists(Mao))
 {
     // 3. PULL THE STATE VARIABLE USING DOT NOTATION
     // Converted to a string so it displays text perfectly
-    var _state_text = "STATE: " + string(Mao.state);
+    var _state_text = "STATE: ";
+	switch (Mao.state)
+	{
+		case 0: _state_text += "SMALL"; break;
+		case 1: _state_text += "FAST!"; break;
+		case 2: _state_text += "BIG"; break;
+		case 3: _state_text += "WALL JUMP!"; break;
+	}
+
+
     
     // 4. DRAW THE TEXT
     draw_set_font(-1); // Uses default font
@@ -54,9 +64,9 @@ if (instance_exists(Mao))
     
     // Drop shadow for readability
     draw_set_color(c_black);
-    draw_text(_ui_x + 1, _ui_y + 1, _state_text);
+    draw_text_transformed(_ui_x + 1, _ui_y + 1, _state_text, _font_scale, _font_scale, 0);
     
     // Main text
     draw_set_color(c_lime); // Using bright lime green so it stands out
-    draw_text(_ui_x, _ui_y, _state_text);
+	draw_text_transformed(_ui_x, _ui_y, _state_text, _font_scale, _font_scale, 0);
 }

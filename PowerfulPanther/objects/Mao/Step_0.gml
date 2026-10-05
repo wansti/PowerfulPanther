@@ -4,6 +4,14 @@ if (wall_jump_lock_timer > 0)
     wall_jump_lock_timer--;
 }
 
+if  (state ==1)
+{
+	walk_speed = 10;
+}
+else {
+	walk_speed = 6;
+}
+
 // 1. CHOOSE YOUR DEVICE ID 
 // Slot 0 is usually the primary connected controller (Xbox, PlayStation, or Switch)
 var _slot = 0; 
@@ -118,6 +126,7 @@ if (state == 3)
         
         vsp = jump_force * 0.9;            
         hsp = _push_direction * walk_speed * 1.5; // Kick away explosively
+		audio_play_sound(SndJump, 5, false); 
         
         // TRIGGER CONTROL LOCK
         // Freezes the player's ability to steer backward for 12 frames
@@ -131,6 +140,7 @@ if (coyote_timer > 0)
 {
     if (_key_jump) 
     {
+		audio_play_sound(SndJump, 5, false); 
         vsp = jump_force; 
         coyote_timer = 0; // Consume the coyote frame instantly so you can't double jump
     }
@@ -195,6 +205,7 @@ else if (state == 2 || state == 3)
             // FORCE MAO TO STAY SMALL AND REVERT STATE UNTIL HE LEAVES THE TIGHT SPACE
             state = 1; 
             mask_index = SpriteMaskSmall;
+			audio_play_sound(SndBlocked, 5, false); 
             
             if (hsp != 0) sprite_index = MaoRunning; 
             else          sprite_index = MaoSmall;
@@ -226,4 +237,60 @@ else if (state == 2 || state == 3)
 if (hsp != 0)
 {
     image_xscale = sign(hsp); 
+}
+
+// exit yarn room
+if (room == YarnRoom)
+{
+    // Check if Mao's bounding box top has scaled completely past the upper edge of the room (0)
+    if (bbox_top < -16) // -16 gives a tiny structural cushion so he is fully off-screen before returning
+    {
+        // Teleport Mao back to the specific level room he originally came from!
+        room_goto(global.saved_room);
+    }
+}
+
+// pit death
+if (room != YarnRoom && global.was_in_yarn == false) 
+{
+    if (y > room_height + 32) 
+    {
+		audio_play_sound(SndBallLand, 5, false); 
+        room_restart(); // Wipes timer if triggered, so we protect it here!
+    }
+}
+else if (room == YarnRoom)
+{
+	// pit death in yarn room
+	if (y > room_height + 32) 
+    {
+		x = room_width / 2;
+		y = room_height - 128;
+	}
+}
+
+// --- TOP-RIGHT CORNER DETECTION FORMULA ---
+// Calculate a 100-pixel zone in the upper right corner of whatever room Mao is currently in
+var _corner_threshold_x = room_width - 100;
+var _corner_threshold_y = 100;
+
+// If Mao passes into that secret zone boundary box
+if (x > _corner_threshold_x && y < _corner_threshold_y)
+{
+    // Trigger the message display sequence if it hasn't fired yet
+    if (!show_corner_message)
+    {
+        show_corner_message = true;
+        message_timer = 240;
+    }
+}
+
+// Tick down the countdown frame-by-frame if active
+if (show_corner_message)
+{
+    message_timer--;
+    if (message_timer <= 0)
+    {
+        show_corner_message = false; // Hide the text once time runs out
+    }
 }

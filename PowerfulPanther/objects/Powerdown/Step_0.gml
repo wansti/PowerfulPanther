@@ -19,6 +19,7 @@ if (_tile_below)
     if (!has_hit_ground) 
     {
         has_hit_ground = true;
+		audio_play_sound(SndBallLand, 5, false); 
         
         // Pick a random direction: -1 (Left) or 1 (Right)
         // choose() randomly selects one of the arguments provided
@@ -49,11 +50,18 @@ y += vsp;
 if (place_meeting(x, y, Mao)) 
 {
     // --- Trigger Powerup Effect Here ---
-    // Example: obj_player.walk_speed = 6; (Speed boost!)
     Mao.state += choose(-1, 1);
 	if (Mao.state < 0)
 	{
-		Mao.state = 3;
+		// 1. SAVE MAO'S CURRENT POSITION COORDS
+        global.saved_x = Mao.x;
+        global.saved_y = Mao.y;
+        global.saved_room = room; // Log the level he is currently inside
+        global.was_in_yarn = true;
+		
+		Mao.state = 1;
+        
+        room_goto(YarnRoom); 
 	}
 	else if (Mao.state > 3)
 	{

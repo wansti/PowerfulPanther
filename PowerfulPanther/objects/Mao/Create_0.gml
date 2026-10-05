@@ -24,3 +24,7 @@ apex_grav_mult  = 0.5;   // Gravity is cut in half at the peak for better landin
 
 // --- New Tracking Variables ---
 coyote_timer = 0;        // Countdown timer for coyote frames
+
+// --- Secret Corner Message Variables ---
+show_corner_message = false;
+message_timer       = 0;

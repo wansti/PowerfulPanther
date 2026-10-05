@@ -7,7 +7,7 @@ part_system_depth(rain_system, -100); // Place it in front of background layers 
 rain_type = part_type_create();
 part_type_sprite(rain_type, MaoSmall, false, false, false); // Fallback to built-in pixel or assign custom asset
 part_type_shape(rain_type, pt_shape_line);                      // Creates a clean, fast streak line
-part_type_size(rain_type, 0.1, 0.2, 0, 0);                      // Tiny, thin raindrops
+part_type_size(rain_type, 0.2, 0.4, 0, 0);                      // Tiny, thin raindrops
 part_type_color1(rain_type, c_teal);                            // Translucent blue/teal hue
 part_type_alpha2(rain_type, 0.6, 0.2);                          // Fades out slightly as it hits the ground
 
